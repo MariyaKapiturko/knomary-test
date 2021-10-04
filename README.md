@@ -1,1 +1,0 @@
-# knomary-test
