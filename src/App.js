@@ -5,51 +5,49 @@ function App() {
   return (
     <>
       <header className="header">
-        <div className="header__left">
-          <div className="header__logo">
-            <a href="/">
-              <div className="header__logo-text">Knomary</div>
-              <div className="header__logo-heading">test</div>
-            </a>
-          </div>
-          <nav className="header__nav">
-            <ul>
-              <li className="header__nav-item header__nav-item--active">
-                <a href="/">Курсы</a>
-              </li>
-              <li className="header__nav-item">
-                <a href="/">Тестирования</a>
-              </li>
-              <li className="header__nav-item">
-                <a href="/">События</a>
-              </li>
-              <li className="header__nav-item header__nav-item--gray">
-                <a href="/">База знаний</a>
-              </li>
-              <li className="header__nav-item header__nav-item--gray">
-                <a href="/">Пользователи</a>
-              </li>
-              <li className="header__nav-item header__nav-item--gray">
-                <a href="/">Отчеты</a>
-              </li>
-            </ul>
+        <div className="container">
+          <nav className="nav">
+            <div className="nav__title">
+              <h1>
+                <div className="header__logo-text">Knomary</div>
+                <div className="header__logo-heading">test</div>
+              </h1>
+              <ul className="nav__menu">
+                <li className="nav__item nav__item--active">
+                  <a href="/">Курсы</a>
+                </li>
+                <li className="nav__item">
+                  <a href="/">Тестирования</a>
+                </li>
+                <li className="nav__item">
+                  <a href="/">События</a>
+                </li>
+                <li className="nav__item nav__item--gray">
+                  <a href="/">База знаний</a>
+                </li>
+                <li className="nav__item nav__item--gray">
+                  <a href="/">Пользователи</a>
+                </li>
+                <li className="nav__item nav__item--gray">
+                  <a href="/">Отчеты</a>
+                </li>
+              </ul>
+            </div>
+            <div className="header__profile">
+              <div className="header__profile-img">
+                <img src={profileImg} alt="Изображение профиля" />
+              </div>
+              <div className="header__profile-description">
+                <div className="header__profile-name">Виталий Лавов</div>
+                <div className="header__profile-role">Сотрудник</div>
+              </div>
+            </div>
           </nav>
-        </div>
-        <div className="header__right">
-          <div className="header__profile">
-            <div className="header__profile-img">
-              <img src={profileImg} alt="Изображение профиля" />
-            </div>
-            <div className="header__profile-description">
-              <div className="header__profile-name">Виталий Лавов</div>
-              <div className="header__profile-role">Сотрудник</div>
-            </div>
-          </div>
         </div>
       </header>
       <main className="main">
-        <section>
-          <h1>Назначенное обучение</h1>
+        <section className="main__education">
+          <h1 className="main__education-title">Назначенное обучение</h1>
           <nav className="main__filter">
             <ul>
               <li className="main__filter-item main__filter-item--active">
@@ -70,7 +68,7 @@ function App() {
               </li>
             </ul>
           </nav>
-          <div className="main__filter-cards">
+          <div className="filter__wrapper">
             <div className="main__filter-card">
               <div className="main__filter-img">
                 <img src="https://via.placeholder.com/330x200" alt="" />

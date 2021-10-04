@@ -1,0 +1,255 @@
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 100%;
+  /* max-width: 1920px; */
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 24px;
+
+  background-color: #fff;
+  border-bottom: solid 1px #E9EBF0;
+
+  &__logo-text {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #2B3452;
+    margin-right: 8px;
+  }
+
+  &__logo-heading {
+    background: #6699FD;
+    border-radius: 4px;
+    padding: 3px 4px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+  }
+
+  &__profile-img {
+    margin-right: 8px;
+    border-radius: 10px;
+  }
+
+  &__profile-name {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000;
+  }
+
+  &__profile-role {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: #6699FD;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 64px;
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      margin-right: 40px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__item {
+    height: 100%;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 32px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    a {
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      color: #2B3452;
+      text-decoration: none;
+    }
+
+    &--active {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        border-bottom: solid 1px #6699FD;
+      }
+
+      a {
+        color: #6699FD;
+      }
+    }
+
+    &--gray {
+      a {
+        color: #7D8395;
+      }
+    }
+  }
+}
+
+.main {
+  padding: 80px 264px 164px;
+
+  section {
+    &:not(:last-child) {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__education-title {
+    margin-bottom: 16px;
+    color: #2B3452;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .filter__wrapper {
+    display: grid;
+    margin-right: auto;
+    margin-left: auto;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 24px;
+  }
+
+  &__filter {
+    margin-bottom: 24px;
+
+    ul {
+      display: flex;
+    }
+  }
+
+  &__filter-item {
+    border-radius: 40px;
+    padding: 8px 16px;
+    background: #F8F8F8;
+    display: flex;
+    align-items: center;
+    
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #7D8395;
+
+    &:not(:last-child) {
+      margin-right: 13px;
+    }
+
+    &--active {
+      background: #6699FD;
+      color: #FFF;
+    }
+  }
+
+  &__filter-card {
+    border-radius: 9px;
+    overflow: hidden;
+    border: 1px solid #E9EBF0;
+    width: 100%;
+    max-width: 330px;
+    margin-bottom: 24px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  &__filter-item-counter {
+    height: 20px;
+    width: 21px;
+    text-align: center;
+    padding: 3px;
+    background: #FDF41F;
+    border-radius: 4px;
+    color: #2B3452;
+    margin-left: 8px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  &__filter-img {
+    width: 100%;
+    min-width: 300px;
+    height: 100%;
+    max-height: 200px;
+    margin-bottom: 16px;
+  }
+
+  &__filter-description {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__filter-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    color: #2B3452;
+  }
+
+  &__filter-date {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #7D8395;
+  }
+}
