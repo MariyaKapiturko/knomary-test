@@ -1,7 +1,17 @@
+$header-height: 64px;
+
+html,
 body {
+  height: 100%;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 16px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .container {
@@ -26,153 +36,9 @@ section {
   cursor: pointer;
 }
 
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 0 24px;
-
-  background-color: #fff;
-  border-bottom: solid 1px #E9EBF0;
-
-  &__logo-text {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 22px;
-    color: #2B3452;
-    margin-right: 8px;
-  }
-
-  &__logo-heading {
-    background: #6699FD;
-    border-radius: 4px;
-    padding: 3px 4px;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 26px;
-    text-transform: uppercase;
-    color: #fff;
-  }
-
-  &__nav {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
-    min-height: 64px;
-  }
-
-  &__nav-title {
-    display: flex;
-    align-items: center;
-
-    h1 {
-      margin-right: 40px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-
-  &__nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  &__nav-item {
-    height: 100%;
-    min-height: 64px;
-    display: flex;
-    align-items: center;
-
-    &:not(:last-child) {
-      margin-right: 32px;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    a {
-      font-weight: normal;
-      font-size: 14px;
-      line-height: 16px;
-      color: #2B3452;
-      text-decoration: none;
-    }
-
-    &--active {
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        border-bottom: solid 1px #6699FD;
-      }
-
-      a {
-        color: #6699FD;
-      }
-    }
-
-    &--gray {
-      a {
-        color: #7D8395;
-      }
-    }
-  }
-
-  &__profile {
-    display: flex;
-    align-items: center;
-  }
-
-  &__profile-img {
-    margin-right: 8px;
-    border-radius: 10px;
-  }
-
-  &__profile-name {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    color: #000;
-  }
-
-  &__profile-role {
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 18px;
-    color: #6699FD;
-  }
-}
-
 .main {
-  padding: 80px 264px 164px;
-
-  &__news {
-    h1 {
-      margin-bottom: 30px;
-    }
-
-    .table {
-      &__wrapper {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      &__text {
-        line-height: 24px;
-      }
-    }
-  }
+  flex: 1 0 auto;
+  padding: (80px + $header-height) 264px 164px;
 
   &__title {
     margin-bottom: 16px;
@@ -230,6 +96,36 @@ section {
   }
 }
 
+.news {
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__table-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    
+    .table__text {
+      line-height: 24px;
+      padding-top: 8px;
+    }
+
+    .table__comments {
+      display: flex;
+      padding-top: 0;
+
+      div {
+        display: flex;
+        align-items: center;
+        margin-right: 24px;
+
+        img {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
 .table {
   &__wrapper {
     display: grid;
@@ -243,6 +139,7 @@ section {
   &__card {
     border-radius: 9px;
     overflow: hidden;
+    position: relative;
     border: 1px solid #E9EBF0;
     width: 100%;
     max-width: 330px;
@@ -260,9 +157,37 @@ section {
     margin-bottom: 16px;
 
     img {
-      width: 100%;
-      max-width: 330x;
-      height: auto;
+
+      display: block; 
+      max-width: 100%; 
+      width: 330px;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+
+  &__badge {
+    background: #EB5757;
+    border-radius: 4px;
+    padding: 4px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    &:nth-child(even) {
+      background: #2D9CDB;
+    }
+
+    &-wrapper {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      display: flex;
     }
   }
 
@@ -271,6 +196,17 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  &__progress-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px 16px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #7D8395;
   }
 
   &__progress-bar {
@@ -291,19 +227,16 @@ section {
     font-size: 14px;
     line-height: 18px;
     color: #7D8395;
-    padding: 0 16px 16px;
-  }
-
-  &__comments {
-    
+    padding: 16px;
   }
 }
 
 .footer {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: space-between;
-  padding: 32px;
+  padding: 24px 32px;
   background: #F2F2F2;
 }
 
@@ -318,20 +251,22 @@ section {
   color: #6699FD;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1624px) {
   .main {
-    padding: 120px;
+    padding: (120px + $header-height) 120px 120px ;
   }
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1440px) {
   .main {
-    padding: 64px;
+    padding: (64px + $header-height) 64px 64px;
   }
 
-  .filter__wrapper {
-    grid-template-columns: repeat(3,1fr);
-    max-width: 100%;
+  .table {
+    &__wrapper {
+      grid-template-columns: repeat(3,1fr);
+      max-width: 100%;
+    }
   }
 }
 
@@ -343,22 +278,26 @@ section {
   }
 
   .main {
-    padding: 48px;
+    padding: (48px +$header-height) 48px 48px;
   }
 
-  .filter__wrapper {
-    grid-template-columns: repeat(2,1fr);
-    max-width: 100%;
+  .table {
+    &__wrapper {
+      grid-template-columns: repeat(2,1fr);
+      max-width: 100%;
+    }
   }
 }
 
 @media screen and (max-width: 480px) {
   .main {
-    padding: 24px;
+    padding: (24px + $header-height) 24px 24px;
   }
 
-  .filter__wrapper {
-    grid-template-columns: repeat(1,1fr);
-    max-width: 100%;
+  .table {
+    &__wrapper {
+      grid-template-columns: repeat(1,1fr);
+      max-width: 100%;
+    }
   }
 }

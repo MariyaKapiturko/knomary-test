@@ -1,167 +1,89 @@
 import React from 'react';
-import profileImg from './profile-img.png';
+import { PureComponent } from 'react';
+import CardBase from './components/CardBase';
+import Header from './components/header/Header';
+import educationData from './fake-data/education.json';
+import newsData from './fake-data/news.json';
+import { labelByType } from './constants/index';
 
-function App() {
-  return (
-    <>
-      <header className="header">
-        <div className="container">
-          <nav className="header__nav">
-            <div className="header__nav-title">
-              <h1>
-                <div className="header__logo-text">Knomary</div>
-                <div className="header__logo-heading">test</div>
-              </h1>
-              <ul className="header__nav-menu">
-                <li className="header__nav-item header__nav-item--active">
-                  <a href="/">Курсы</a>
+const ALL = 'all';
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = { filter: ALL };
+  }
+
+  handleChangeFilter = (type) => {
+    this.setState({ filter: type });
+  };
+  render() {
+    const { filter } = this.state;
+    const typeEducation = Array.from(new Set(educationData.map((element) => element.type)));
+    const filteredData =
+      filter === ALL ? educationData : educationData.filter((elem) => elem.type === filter);
+    return (
+      <>
+        <Header />
+        <main className="main">
+          <section>
+            <h1 className="main__title">Назначенное обучение</h1>
+            <nav className="main__filter">
+              <ul className="main__filter-nav">
+                <li
+                  onClick={() => this.handleChangeFilter(ALL)}
+                  className={
+                    filter !== ALL
+                      ? 'main__filter-item'
+                      : 'main__filter-item main__filter-item--active'
+                  }>
+                  Все
+                  <div className="main__filter-item-counter">{educationData.length}</div>
                 </li>
-                <li className="header__nav-item">
-                  <a href="/">Тестирования</a>
-                </li>
-                <li className="header__nav-item">
-                  <a href="/">События</a>
-                </li>
-                <li className="header__nav-item header__nav-item--gray">
-                  <a href="/">База знаний</a>
-                </li>
-                <li className="header__nav-item header__nav-item--gray">
-                  <a href="/">Пользователи</a>
-                </li>
-                <li className="header__nav-item header__nav-item--gray">
-                  <a href="/">Отчеты</a>
-                </li>
+                {typeEducation.map((typeEdu) => (
+                  <li
+                    onClick={() => this.handleChangeFilter(typeEdu)}
+                    className={
+                      filter !== typeEdu
+                        ? 'main__filter-item'
+                        : 'main__filter-item main__filter-item--active'
+                    }>
+                    {labelByType[typeEdu]}
+                    <div className="main__filter-item-counter">
+                      {educationData.filter((elem) => elem.type === typeEdu).length}
+                    </div>
+                  </li>
+                ))}
               </ul>
+            </nav>
+            <div className="table__wrapper">
+              {filteredData.map((element) => (
+                <CardBase element={element} />
+              ))}
             </div>
-            <div className="header__profile">
-              <div className="header__profile-img">
-                <img src={profileImg} alt="Изображение профиля" />
-              </div>
-              <div className="header__profile-description">
-                <div className="header__profile-name">Виталий Лавов</div>
-                <div className="header__profile-role">Сотрудник</div>
-              </div>
+          </section>
+          <section>
+            <h1 className="main__title news__title">Новости</h1>
+            <div className="table__wrapper news__table-wrapper">
+              {newsData.map((element) => (
+                <CardBase element={element} />
+              ))}
             </div>
-          </nav>
-        </div>
-      </header>
-      <main className="main">
-        <section className="main__education">
-          <h1 className="main__title">Назначенное обучение</h1>
-          <nav className="main__filter">
-            <ul className="main__filter-nav">
-              <li className="main__filter-item main__filter-item--active">
-                Все
-                <div className="main__filter-item-counter">8</div>
-              </li>
-              <li className="main__filter-item">
-                Курсы
-                <div className="main__filter-item-counter">5</div>
-              </li>
-              <li className="main__filter-item">
-                Тесты
-                <div className="main__filter-item-counter">2</div>
-              </li>
-              <li className="main__filter-item">
-                События
-                <div className="main__filter-item-counter">1</div>
-              </li>
-            </ul>
-          </nav>
-          <div className="table__wrapper">
-            <div className="table__card">
-              <div>
-                <div className="table__img">
-                  <img src="https://via.placeholder.com/330x200" alt="" />
-                </div>
-                <div className="table__progress-bar">1</div>
-                <div className="table__title">24-часовой рабочий день</div>
-              </div>
-              <div>
-                <div className="table__text">Доступен до: 20.04.2021</div>
-              </div>
-            </div>
-            <div className="table__card">
-              <div>
-                <div className="table__img">
-                  <img src="https://via.placeholder.com/330x200" alt="" />
-                </div>
-                <div className="table__progress-bar">2</div>
-                <div className="table__title">24-часовой рабочий день</div>
-              </div>
-              <div>
-                <div className="table__text">Доступен до: 20.04.2021</div>
-              </div>
-            </div>
-            <div className="table__card">
-              <div>
-                <div className="table__img">
-                  <img src="https://via.placeholder.com/330x200" alt="" />
-                </div>
-                <div className="table__progress-bar">3</div>
-                <div className="table__title">24-часовой рабочий день</div>
-              </div>
-              <div>
-                <div className="table__text">Доступен до: 20.04.2021</div>
-              </div>
-            </div>
-            <div className="table__card">
-              <div>
-                <div className="table__img">
-                  <img src="https://via.placeholder.com/330x200" alt="" />
-                </div>
-                <div className="table__progress-bar">4</div>
-                <div className="table__title">24-часовой рабочий день</div>
-              </div>
-              <div>
-                <div className="table__text">Доступен до: 20.04.2021</div>
-              </div>
-            </div>
-            <div className="table__card">
-              <div>
-                <div className="table__img">
-                  <img src="https://via.placeholder.com/330x200" alt="" />
-                </div>
-                <div className="table__progress-bar">5</div>
-                <div className="table__title">24-часовой рабочий день</div>
-              </div>
-              <div>
-                <div className="table__text">Доступен до: 20.04.2021</div>
-              </div>
-            </div>
+          </section>
+        </main>
+        <footer className="footer">
+          <div className="header__nav-title">
+            <h1>
+              <div className="header__logo-text">Knomary</div>
+              <div className="header__logo-heading">test</div>
+            </h1>
           </div>
-        </section>
-        <section className="main__news">
-          <h1 className="main__title">Новости</h1>
-          <div className="table__wrapper">
-            <div className="table__card">
-              <div>
-                <div className="table__img">
-                  <img src="https://via.placeholder.com/330x200" alt="" />
-                </div>
-                <div className="table__title">24-часовой рабочий день</div>
-                <div className="table__text">Доступен до: 20.04.2021</div>
-              </div>
-              <div>
-                <div className="table__comments">Доступен до: 20.04.2021</div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer className="footer">
-        <div className="header__nav-title">
-          <h1>
-            <div className="header__logo-text">Knomary</div>
-            <div className="header__logo-heading">test</div>
-          </h1>
-        </div>
-        <button className="button help__button">
-          <div>Нужна помощь?</div>
-        </button>
-      </footer>
-    </>
-  );
+          <button className="button help__button">
+            <div>Нужна помощь?</div>
+          </button>
+        </footer>
+      </>
+    );
+  }
 }
 
 export default App;
