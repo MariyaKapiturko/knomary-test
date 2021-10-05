@@ -6,29 +6,29 @@ function App() {
     <>
       <header className="header">
         <div className="container">
-          <nav className="nav">
-            <div className="nav__title">
+          <nav className="header__nav">
+            <div className="header__nav-title">
               <h1>
                 <div className="header__logo-text">Knomary</div>
                 <div className="header__logo-heading">test</div>
               </h1>
-              <ul className="nav__menu">
-                <li className="nav__item nav__item--active">
+              <ul className="header__nav-menu">
+                <li className="header__nav-item header__nav-item--active">
                   <a href="/">Курсы</a>
                 </li>
-                <li className="nav__item">
+                <li className="header__nav-item">
                   <a href="/">Тестирования</a>
                 </li>
-                <li className="nav__item">
+                <li className="header__nav-item">
                   <a href="/">События</a>
                 </li>
-                <li className="nav__item nav__item--gray">
+                <li className="header__nav-item header__nav-item--gray">
                   <a href="/">База знаний</a>
                 </li>
-                <li className="nav__item nav__item--gray">
+                <li className="header__nav-item header__nav-item--gray">
                   <a href="/">Пользователи</a>
                 </li>
-                <li className="nav__item nav__item--gray">
+                <li className="header__nav-item header__nav-item--gray">
                   <a href="/">Отчеты</a>
                 </li>
               </ul>
@@ -47,9 +47,9 @@ function App() {
       </header>
       <main className="main">
         <section className="main__education">
-          <h1 className="main__education-title">Назначенное обучение</h1>
+          <h1 className="main__title">Назначенное обучение</h1>
           <nav className="main__filter">
-            <ul>
+            <ul className="main__filter-nav">
               <li className="main__filter-item main__filter-item--active">
                 Все
                 <div className="main__filter-item-counter">8</div>
@@ -68,77 +68,98 @@ function App() {
               </li>
             </ul>
           </nav>
-          <div className="filter__wrapper">
-            <div className="main__filter-card">
-              <div className="main__filter-img">
-                <img src="https://via.placeholder.com/330x200" alt="" />
-              </div>
-              <div className="main__filter-description">
-                <div>
-                  <div className="main__filter-progress-bar">1</div>
-                  <div className="main__filter-title">24-часовой рабочий день</div>
+          <div className="table__wrapper">
+            <div className="table__card">
+              <div>
+                <div className="table__img">
+                  <img src="https://via.placeholder.com/330x200" alt="" />
                 </div>
-                <div className="main__filter-date">Доступен до: 20.04.2021</div>
+                <div className="table__progress-bar">1</div>
+                <div className="table__title">24-часовой рабочий день</div>
+              </div>
+              <div>
+                <div className="table__text">Доступен до: 20.04.2021</div>
               </div>
             </div>
-            <div className="main__filter-card">
-              <div className="main__filter-img">
-                <img src="https://via.placeholder.com/330x200" alt="" />
-              </div>
-              <div className="main__filter-description">
-                <div>
-                  <div className="main__filter-progress-bar">2</div>
-                  <div className="main__filter-title">
-                    Эксперт назвал способ навсегда покончить с нападками
-                  </div>
+            <div className="table__card">
+              <div>
+                <div className="table__img">
+                  <img src="https://via.placeholder.com/330x200" alt="" />
                 </div>
-                <div className="main__filter-date">Доступен до: 25.04.2021</div>
+                <div className="table__progress-bar">2</div>
+                <div className="table__title">24-часовой рабочий день</div>
+              </div>
+              <div>
+                <div className="table__text">Доступен до: 20.04.2021</div>
               </div>
             </div>
-            <div className="main__filter-card">
-              <div className="main__filter-img">
-                <img src="https://via.placeholder.com/330x200" alt="" />
-              </div>
-              <div className="main__filter-description">
-                <div>
-                  <div className="main__filter-progress-bar">3</div>
-                  <div className="main__filter-title">
-                    Агрегаторы станут нести ответственность за услуги
-                  </div>
+            <div className="table__card">
+              <div>
+                <div className="table__img">
+                  <img src="https://via.placeholder.com/330x200" alt="" />
                 </div>
-                <div className="main__filter-date">Доступен до: 27.04.2021</div>
+                <div className="table__progress-bar">3</div>
+                <div className="table__title">24-часовой рабочий день</div>
+              </div>
+              <div>
+                <div className="table__text">Доступен до: 20.04.2021</div>
               </div>
             </div>
-            <div className="main__filter-card">
-              <div className="main__filter-img">
-                <img src="https://via.placeholder.com/330x200" alt="" />
-              </div>
-              <div className="main__filter-description">
-                <div>
-                  <div className="main__filter-progress-bar">4</div>
-                  <div className="main__filter-title">Упаковка и маркировка товара</div>
+            <div className="table__card">
+              <div>
+                <div className="table__img">
+                  <img src="https://via.placeholder.com/330x200" alt="" />
                 </div>
-                <div className="main__filter-date">Доступен до: 05.05.2021</div>
+                <div className="table__progress-bar">4</div>
+                <div className="table__title">24-часовой рабочий день</div>
+              </div>
+              <div>
+                <div className="table__text">Доступен до: 20.04.2021</div>
               </div>
             </div>
-            <div className="main__filter-card">
-              <div className="main__filter-img">
-                <img src="https://via.placeholder.com/330x200" alt="" />
-              </div>
-              <div className="main__filter-description">
-                <div>
-                  <div className="main__filter-progress-bar">5</div>
-                  <div className="main__filter-title">Теории Зигмунда Фрейда и Альфреда Адлера</div>
+            <div className="table__card">
+              <div>
+                <div className="table__img">
+                  <img src="https://via.placeholder.com/330x200" alt="" />
                 </div>
-                <div className="main__filter-date">Доступен до: 10.05.2021</div>
+                <div className="table__progress-bar">5</div>
+                <div className="table__title">24-часовой рабочий день</div>
+              </div>
+              <div>
+                <div className="table__text">Доступен до: 20.04.2021</div>
               </div>
             </div>
           </div>
         </section>
-        <section>
-          <h1>Новости</h1>
+        <section className="main__news">
+          <h1 className="main__title">Новости</h1>
+          <div className="table__wrapper">
+            <div className="table__card">
+              <div>
+                <div className="table__img">
+                  <img src="https://via.placeholder.com/330x200" alt="" />
+                </div>
+                <div className="table__title">24-часовой рабочий день</div>
+                <div className="table__text">Доступен до: 20.04.2021</div>
+              </div>
+              <div>
+                <div className="table__comments">Доступен до: 20.04.2021</div>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
+      <footer className="footer">
+        <div className="header__nav-title">
+          <h1>
+            <div className="header__logo-text">Knomary</div>
+            <div className="header__logo-heading">test</div>
+          </h1>
+        </div>
+        <button className="button help__button">
+          <div>Нужна помощь?</div>
+        </button>
+      </footer>
     </>
   );
 }
