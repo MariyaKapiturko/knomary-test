@@ -53,6 +53,10 @@ section {
   position: absolute;
 }
 
+.page__inactive {
+  overflow: hidden;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -140,12 +144,14 @@ section {
   &__menu {
     position: fixed;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     top: $header-height;
     left: 0;
     z-index: 9999;
     transform: translateX(-180%);
     transition: all .2s;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
     &.active {
       transform: translateX(0);
@@ -282,6 +288,10 @@ section {
 .main {
   flex: 1 0 auto;
   padding: ($grid-point * 10 + $header-height) $grid-point * 33 164px;
+
+  &__inactive {
+    // overflow-y: hidden;
+  }
 
   &__title {
     margin-bottom: $grid-point * 2;
