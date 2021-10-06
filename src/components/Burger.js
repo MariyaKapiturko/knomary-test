@@ -9,7 +9,7 @@ const Burger = ({ items, active, setActive }) => {
         <div className="header__menu-content" onClick={(e) => e.stopPropagation()}>
           <ul>
             {items.map((item) => (
-              <li>
+              <li className="header__nav-item">
                 <a href={item.href}>{item.value}</a>
               </li>
             ))}
