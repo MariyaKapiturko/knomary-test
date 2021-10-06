@@ -28,7 +28,7 @@ export default class CardBase extends PureComponent {
 
     return (
       <div className="table__card">
-        <div>
+        <div style={{ width: '100%' }}>
           <div className="table__img">
             {element.tags ? (
               <div className="table__badge-wrapper">

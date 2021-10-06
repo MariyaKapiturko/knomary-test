@@ -1,6 +1,7 @@
 // Size variables
 $header-height: 64px;
 $grid-point: 8px;
+$main-padding: 264px;
 
 // Colors variables
 $main-color: #6699FD;
@@ -48,7 +49,6 @@ section {
 .blur {
   width: 100%;
   height: 100vh;
-  // left: 30%;
   backdrop-filter: blur(2px);
   position: absolute;
 }
@@ -287,11 +287,7 @@ section {
 
 .main {
   flex: 1 0 auto;
-  padding: ($grid-point * 10 + $header-height) $grid-point * 33 164px;
-
-  &__inactive {
-    // overflow-y: hidden;
-  }
+  padding: ($grid-point * 10 + $header-height) $main-padding 164px;
 
   &__title {
     margin-bottom: $grid-point * 2;
@@ -529,40 +525,48 @@ section {
   color: $main-color;
 }
 
-@media screen and (min-width: 1440px) {
-  .header {
-    &__burger {
-      display: none;
-    }
-
-    &__nav-menu {
-      display: flex;
-    }
-  }
-}
-
-@media screen and (max-width: 1624px) {
+@media screen and (max-width: 1920px) {
   .main {
-    padding: ($grid-point * 15 + $header-height) $grid-point * 15 $grid-point * 15 ;
+    padding: $grid-point * 10 $main-padding / 2 $grid-point * 8;
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1656px) {
+  .main {
+    padding: $grid-point * 10 $main-padding / 4 $grid-point * 8;
+  }
+}
+
+@media screen and (max-width: 1524px) {
+  .main {
+    padding: $grid-point * 10 $main-padding / 6 $grid-point * 8;
+  }
+}
+
+@media screen and (max-width: 1480px) {
+  .table {
+    &__wrapper {
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    &__card {
+      max-width: unset;
+    }
+
+    &__img img {
+      max-width: unset;
+      min-width: 330px;
+      width: 100%;
+    }
+  }
+
+  .news__table-wrapper {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media screen and (max-width: 1126px) {
   .header {
-    padding: 0 $grid-point;
-
-    &__profile-description {
-      display: none;
-    }
-
-    &__profile-img {
-      margin: 0;
-    }
-
-    &__nav-menu {
-      display: none;
-    }
-
     &__nav-title {
       h1 {
         order: 2;
@@ -573,47 +577,83 @@ section {
       order: 1;
       margin-right: $grid-point * 5;
     }
-  }
 
-  .main {
-    padding: ($grid-point * 8 + $header-height) $grid-point * 8 $grid-point * 8;
-  }
-
-  .table {
-    &__wrapper {
-      grid-template-columns: repeat(3,1fr);
-      max-width: 100%;
+    &__nav-menu {
+      display: none;
     }
-  }
-}
-
-@media screen and (max-width: 769px) {
-  .main {
-    padding: ($grid-point * 6 +$header-height) $grid-point * 6 $grid-point * 6;
   }
 
   .table {
     &__wrapper {
       grid-template-columns: repeat(2,1fr);
-      max-width: 100%;
     }
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 1126px) {
+  .header {
+    &__burger {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 808px) {
+  .news__table-wrapper {
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+
+@media screen and (max-width: 772px) {
   .main {
-    padding: ($grid-point * 3 + $header-height) $grid-point * 3 $grid-point * 3;
+    padding: $grid-point * 10 $main-padding / 8 $grid-point * 8;
   }
 
   .table {
     &__wrapper {
       grid-template-columns: repeat(1,1fr);
-      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 772px) {
+  .main {
+    padding: $grid-point * 10 $main-padding / 11 $grid-point * 8;
+  }
+}
+
+@media screen and (max-width: 444px) {
+  .header {
+    &__burger {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .header {
+    &__profile-img {
+      margin: 0;
     }
 
-    &__card {
-      margin-left: auto;
-      margin-right: auto;
+    &__profile-description {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 396px) {
+  .news__table-wrapper {
+    .table {
+      &__card {
+        max-width: unset;
+      }
+  
+      &__img img {
+        max-width: unset;
+        min-width: 330px;
+        width: 100%;
+      }
     }
   }
 }
