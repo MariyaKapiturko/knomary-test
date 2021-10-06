@@ -7,18 +7,25 @@ import likes from '../assets/img/likes.png';
 import comments from '../assets/img/comments.png';
 
 const getProgressText = (progress) => {
-  if (progress === 0 || progress === null) {
+  if (progress === 0) {
     return 'не пройден';
   }
+
   if (progress === 100) {
     return 'пройден';
   }
+
+  if (progress === null) {
+    return false;
+  }
+
   return progress + '% пройдено';
 };
 
 export default class CardBase extends PureComponent {
   render() {
     const { element } = this.props;
+
     return (
       <div className="table__card">
         <div>
