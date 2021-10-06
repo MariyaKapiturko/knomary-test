@@ -581,6 +581,10 @@ section {
     &__nav-menu {
       display: none;
     }
+
+    &__menu-content {
+      width: 40%;
+    }
   }
 
   .table {
@@ -599,6 +603,11 @@ section {
 }
 
 @media screen and (max-width: 808px) {
+  .header {
+    &__menu-content {
+      width: 60%;
+    }
+  }
   .news__table-wrapper {
     grid-template-columns: repeat(1,1fr);
   }
@@ -626,6 +635,10 @@ section {
   .header {
     &__burger {
       margin-right: 20px;
+    }
+
+    &__menu-content {
+      width: 80%;
     }
   }
 }
