@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/knomary-test/static/css/main.1283df1d.chunk.css",
-    "main.js": "/knomary-test/static/js/main.bfcf4afa.chunk.js",
-    "main.js.map": "/knomary-test/static/js/main.bfcf4afa.chunk.js.map",
+    "main.css": "/knomary-test/static/css/main.2272e5ca.chunk.css",
+    "main.js": "/knomary-test/static/js/main.c26b3443.chunk.js",
+    "main.js.map": "/knomary-test/static/js/main.c26b3443.chunk.js.map",
     "runtime-main.js": "/knomary-test/static/js/runtime-main.e0956c3d.js",
     "runtime-main.js.map": "/knomary-test/static/js/runtime-main.e0956c3d.js.map",
     "static/js/2.bc6e8511.chunk.js": "/knomary-test/static/js/2.bc6e8511.chunk.js",
     "static/js/2.bc6e8511.chunk.js.map": "/knomary-test/static/js/2.bc6e8511.chunk.js.map",
     "index.html": "/knomary-test/index.html",
-    "static/css/main.1283df1d.chunk.css.map": "/knomary-test/static/css/main.1283df1d.chunk.css.map",
+    "static/css/main.2272e5ca.chunk.css.map": "/knomary-test/static/css/main.2272e5ca.chunk.css.map",
     "static/js/2.bc6e8511.chunk.js.LICENSE.txt": "/knomary-test/static/js/2.bc6e8511.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e0956c3d.js",
     "static/js/2.bc6e8511.chunk.js",
-    "static/css/main.1283df1d.chunk.css",
-    "static/js/main.bfcf4afa.chunk.js"
+    "static/css/main.2272e5ca.chunk.css",
+    "static/js/main.c26b3443.chunk.js"
   ]
 }
