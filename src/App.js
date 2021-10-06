@@ -14,6 +14,22 @@ import { labelByType } from './constants/index';
 import profileImg from './assets/img/profile-img.png';
 
 const ALL = 'all';
+
+const isMenuActive = (progress) => {
+  if (progress === 0) {
+    return 'не пройден';
+  }
+
+  if (progress === 100) {
+    return 'пройден';
+  }
+
+  if (progress === null) {
+    return false;
+  }
+
+  return progress + '% пройдено';
+};
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -31,6 +47,7 @@ class App extends PureComponent {
   hideBurger = () => {
     this.setState({ menuActive: false });
   };
+
   render() {
     const { filter, menuActive } = this.state;
     const typeEducation = Array.from(new Set(educationData.map((element) => element.type)));
