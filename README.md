@@ -1,3 +1,5 @@
-## npm i
+# npm install
 
-## npm start
+# npm start
+
+# npm run deploy
